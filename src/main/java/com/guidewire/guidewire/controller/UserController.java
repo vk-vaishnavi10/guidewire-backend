@@ -3,13 +3,15 @@ package com.guidewire.guidewire.controller;
 import com.guidewire.guidewire.entity.User;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Map;
+
 @RestController
 @RequestMapping("/api/user")
 @CrossOrigin
 public class UserController {
 
     @PostMapping("/save-profile")
-    public String saveProfile(@RequestBody User userData) {
+    public Map<String, String> saveProfile(@RequestBody User userData) {
 
         System.out.println("User saved:");
         System.out.println("Phone: " + userData.getPhone());
@@ -20,6 +22,6 @@ public class UserController {
         System.out.println("Experience: " + userData.getExperience());
         System.out.println("Bank: " + userData.getBankName());
 
-        return "User saved successfully";
+        return Map.of("status", "success");
     }
 }
