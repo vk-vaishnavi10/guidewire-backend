@@ -14,9 +14,10 @@ public class OtpService {
     // 🔹 Generate OTP
     public String sendOtp(String phone) {
 
-        String otp = "123456"; // fixed OTP for demo
+        String otp = String.valueOf((int)(Math.random() * 900000) + 100000); // fixed OTP for demo
 
         otpStore.put(phone, otp);
+        System.out.println("OTP for " + phone + " is: " + otp);
 
         return otp;
     }
